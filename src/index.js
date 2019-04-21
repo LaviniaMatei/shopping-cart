@@ -33,7 +33,7 @@ request.onload = function() {
       btn.className = 'btn-lg btn-info align-text-bottom';
       btn.textContent = 'Add Item';
       btn.setAttribute('data-id', teddies[i]._id);
-      btn.addEventListener('click', addItem);
+      btn.addEventListener('click', openItem);
       card.appendChild(btn);
     }
    
@@ -45,48 +45,17 @@ request.onload = function() {
 
 request.send();
 
-
-
-function addItem(ev){
+function openItem(ev) {
   ev.preventDefault();
   let id = ev.target.getAttribute('data-id');
-  let arr = PRODUCTS.filter(product=>{
-  if(product._id == id){
-  return true;
-  }else{
-  console.log('fail')
-  }
+  let teddy = PRODUCTS.find(product=>{
+    if(product._id == id){
+      return true;
+    }else{
+      console.log('fail')
+    }
   });
-  
-  if(arr && arr[0]){
-    let obj = {
-        id: arr[0]._id,
-        image: arr[0].imageUrl,
-        name: arr[0].name,
-        color: arr[0].colors,
-        price: arr[0].price,
-        description: arr[0].description
-    };
-     
-	
-    img1 = obj.image;
 
-    var output =
-    `<ul>
-    <li> Name:${obj.name}</li>
-    <li> <img class ='single-image' src="${img1}"></li>
-    <li> Price:${obj.price}</li>
-    <li> Description:${obj.description}</li>
-    <li> Colors:${arr[0].colors}</li> 
-     </ul>`
-
-    
-  }
-  document.getElementById('displayTeddy').innerHTML=output;
-  
+  localStorage.setItem('selectedTeddy', JSON.stringify(teddy));
+  location.pathname = location.pathname.replace('index.html', 'teddy.html');
 }
-
-
-
-
-  
