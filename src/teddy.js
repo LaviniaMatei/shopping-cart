@@ -1,5 +1,5 @@
 const selectedTeddy = JSON.parse(localStorage.getItem('selectedTeddy'));
-let cartArray = JSON.parse(localStorage.getItem('cartArray'));
+
 
 window.onload = function(){
     if(selectedTeddy){
@@ -18,12 +18,14 @@ window.onload = function(){
         
         var output =
         `<ul>
-        <li> Name:${obj.name}</li>
+        
         <li> <img class ='single-image' src="${img1}"></li>
-        <li> Price:${obj.price}</li>
-        <li> Description:${obj.description}</li>
-        <li class="colors-edit"> Colors: </li> 
-        <li class="numbers-edit"> Quantity: </li>
+        <li> <span class = 'teddy-details'>Name</span>: ${obj.name}</li>
+        <li> <span class = 'teddy-details'>Price</span>: ${obj.price}</li>
+        <li> <span class = 'teddy-details'>Description</span>: ${obj.description}</li>
+        <li class="colors-edit"> <span class = 'teddy-details'>Colors: </span</li> 
+        <li class="numbers-edit"><span class = 'teddy-details'> Quantity: </span></li>
+        <li><button type="button" class="add-btn">Add to Cart</button></li>
         </ul>`
 
         
@@ -42,8 +44,8 @@ window.onload = function(){
 
         function quantityChanged(event){
         var input= event.target;
-        if (isNaN(input.value) || input.value<= 0){
-            var result =input.value =1;
+        if (isNaN(input.value) || input.value<= 1){
+            var result =input.value =0;
             
         }
         }
@@ -68,20 +70,13 @@ window.onload = function(){
         //todo just do some error handling when the teddy is not set int the localstorage
     }
 }
-function addToCart() {
- if(!cartArray) {
-     cartArray = [];
- }
 
- var correspondingTeddy = cartArray.find(function(teddy) {
-     return teddy.id === selectedTeddy.id && teddy.color === selectedTeddy.color;
- });
+function addTeddyToTheCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    cart.push(selectedTeddy);
 
- if(correspondingTeddy) {
-     correspondingTeddy.quantity += selectedQuantity;
- } else {
-     cartArray.push({id: selectedTeddy.id, color: selectedColor, quantity: selectedQuantity});
- }
+    localStorage.setItem('cart', JSON.stringify(cart));
 
- localStorage.setItem(JSON.stringify(cartArray));
+    
 }

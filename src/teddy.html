@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>teddies</title>
+    <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body>
- <div id="displayTeddy"> </div>
+ <div id="displayTeddy" class="d-flex justify-content-center"></div>
  <script src="teddy.js"></script>
 
 <style>
@@ -26,13 +30,40 @@
         }
         
         #displayTeddy{
-            width:400px;
-            height: auto;
-            background-color:aquamarine;
+            width:500px;
+            height: 500px;
+            font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
+            margin: 0 auto;
+            
         }
+
+        ul li {
+        list-style-type: none;
+        padding: 10px;
+         }
+
+         .teddy-details{
+             color: #ab3885;
+         }
+
+         .add-btn{
+        background: #ab3885;
+        text-transform: uppercase;
+        color: #ffffff;
+
+    
+    border-width: 0px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-radius: 0;
+    padding:10px;
+    border-radius: 20px;
+    font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+         }
         .single-image{
-           width: 50px;
-           height:50px; 
+           width: 445px;
+           height:250px; 
         }
         
         #form1{
