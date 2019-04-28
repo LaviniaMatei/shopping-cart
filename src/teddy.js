@@ -1,5 +1,7 @@
 const selectedTeddy = JSON.parse(localStorage.getItem('selectedTeddy'));
 
+let quantityInput;
+let colorsEditSelect;
 
 window.onload = function(){
     if(selectedTeddy){
@@ -25,7 +27,7 @@ window.onload = function(){
         <li> <span class = 'teddy-details'>Description</span>: ${obj.description}</li>
         <li class="colors-edit"> <span class = 'teddy-details'>Colors: </span</li> 
         <li class="numbers-edit"><span class = 'teddy-details'> Quantity: </span></li>
-        <li><button type="button" class="add-btn">Add to Cart</button></li>
+        <li><button type="button" class="add-btn" onclick="addTeddyToTheCart()">Add to Cart</button></li>
         </ul>`
 
         
@@ -34,26 +36,24 @@ window.onload = function(){
         // select numbers
 
         var numbersEdit =document.querySelector('.numbers-edit');
-        var input = document.createElement('input');
-        input.className= 'quantity-input'
-        var inputNumber =input.type= 'number';
-        var inputValue = input.value = '1';
-        numbersEdit.appendChild(input);
-        input.addEventListener('change',quantityChanged);
+        quantityInput = document.createElement('input');
+        quantityInput.className= 'quantity-input'
+        var inputNumber =quantityInput.type= 'number';
+        var inputValue = quantityInput.value = '1';
+        numbersEdit.appendChild(quantityInput);
+        quantityInput.addEventListener('change',quantityChanged);
         
 
         function quantityChanged(event){
-        var input= event.target;
-        if (isNaN(input.value) || input.value<= 1){
-            var result =input.value =0;
-            
+        if (isNaN(quantityInput.value) || quantityInput.value<= 1){
+            var result =quantityInput.value =0;
         }
         }
 
         //select colors
 
         var colorsEdit = document.querySelector('.colors-edit');
-        var colorsEditSelect = document.createElement('select');
+        colorsEditSelect = document.createElement('select');
         colorsEdit.appendChild(colorsEditSelect);
         
         //colorsEditSelect.addEventListener('change', function() {
@@ -72,11 +72,24 @@ window.onload = function(){
 }
 
 function addTeddyToTheCart() {
+    if(quantityInput.value === 0) {
+        return;
+    }
+
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     
-    cart.push(selectedTeddy);
+    selectedTeddy.color = colorsEditSelect.value;
+    selectedTeddy.quantity = +quantityInput.value;
+
+    const sameColorTeddy = cart.find(teddy => {
+        return teddy.color === selectedTeddy.color && teddy._id === selectedTeddy._id
+    });
+
+    if(sameColorTeddy) {
+        sameColorTeddy.quantity += selectedTeddy.quantity;
+    } else {
+        cart.push(selectedTeddy);
+    }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-
-    
 }

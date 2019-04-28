@@ -30,7 +30,7 @@ request.onload = function() {
 
       //add the button to the card
       let btn = document.createElement('button');
-      btn.className = 'btn-lg btn-info align-text-bottom';
+      btn.className = 'submitBtn align-text-bottom';
       btn.textContent = 'View Item';
       btn.setAttribute('data-id', teddies[i]._id);
       btn.addEventListener('click', openItem);
