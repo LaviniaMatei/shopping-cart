@@ -1,13 +1,17 @@
 
 const productsContainer = document.getElementById('products');
-const submitBtn = document.getElementById('submitBtn');
+const contactForm = document.querySelector('#contact-form');
 const responseName = document.getElementById('responseName');
 
-const cart = JSON.parse(localStorage.getItem('cart'));
+let cart = JSON.parse(localStorage.getItem('cart'));
     
-let totalPrice = 0;
 
-window.onload = function() {
+window.onload = showTeddies;
+let totalPrice = 0;
+function showTeddies() {
+  productsContainer.innerHTML = '';
+  //let totalPrice = 0;
+
   for(let cartItem of cart) {
     const cartItemEl = document.createElement('div');
 
@@ -15,7 +19,7 @@ window.onload = function() {
       <img class="img-fluid rounded  max-width: 100% height: auto pt-3" src="${cartItem.imageUrl}" width = "400px"/>
       <p> Name: ${cartItem.name}</p>
       <p>Color: ${cartItem.color}</p>
-      
+      <button class="float-right mr-5 mb-5 mt-3 submitBtn" onclick="deleteTheTeddy('${cartItem._id}','${cartItem.color}')">Remove item </button> 
       
     `;
 
@@ -27,8 +31,18 @@ window.onload = function() {
   productsContainer.innerHTML += '<div><p>Total Price of Your Order is: ' + totalPrice + '</p></div>';
 }
 
-submitBtn.addEventListener('click', ($event)=>{
+function deleteTheTeddy(id, color) {
+  cart = cart.filter(cartItem => {
+    return cartItem._id !== id || cartItem.color !== color;  
+  });
+
+  showTeddies();
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+contactForm.addEventListener('submit', ($event)=>{
 $event.preventDefault();
+
 const post ={
   contact: {
     firstName: document.getElementById('first-name').value,
@@ -40,6 +54,7 @@ const post ={
   products: cart.map(teddy => teddy._id)
 };
 submitFormData(post);
+return false;
 });
 
 function makeRequest(data) {
@@ -82,3 +97,4 @@ request.send(JSON.stringify(data));
 
   
 
+  

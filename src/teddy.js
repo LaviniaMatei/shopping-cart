@@ -1,5 +1,5 @@
 const selectedTeddy = JSON.parse(localStorage.getItem('selectedTeddy'));
-
+const feedback = document.querySelector('.feedback');
 let quantityInput;
 let colorsEditSelect;
 
@@ -28,6 +28,8 @@ window.onload = function(){
         <li class="colors-edit"> <span class = 'teddy-details'>Colors: </span</li> 
         <li class="numbers-edit"><span class = 'teddy-details'> Quantity: </span></li>
         <li><button type="button" class="add-btn" onclick="addTeddyToTheCart()">Add to Cart</button></li>
+        <li><a href="index.html"><button class="add-btn">Go back</button></a></li>
+
         </ul>`
 
         
@@ -71,6 +73,15 @@ window.onload = function(){
     }
 }
 
+//show feedback
+function showFeedback(element, text, result){
+    element.classList.add('showItem',`${result}`);
+    element.innerHTML = `<p>${text}</p>`;
+    setTimeout(function(){
+      element.classList.remove("showItem", `${result}`);
+    }, 3000);
+  }
+
 function addTeddyToTheCart() {
     if(quantityInput.value === 0) {
         return;
@@ -78,18 +89,26 @@ function addTeddyToTheCart() {
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     
+    
     selectedTeddy.color = colorsEditSelect.value;
     selectedTeddy.quantity = +quantityInput.value;
 
     const sameColorTeddy = cart.find(teddy => {
         return teddy.color === selectedTeddy.color && teddy._id === selectedTeddy._id
+        
     });
 
     if(sameColorTeddy) {
         sameColorTeddy.quantity += selectedTeddy.quantity;
     } else {
         cart.push(selectedTeddy);
+        
     }
+    
 
     localStorage.setItem('cart', JSON.stringify(cart));
+
+    showFeedback(feedback, 'item added to cart', 'alert-success');
+    
 }
+

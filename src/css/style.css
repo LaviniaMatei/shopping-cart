@@ -1,0 +1,137 @@
+.card-body{
+    width:400px;
+    height:auto;
+    margin-top:30px;
+}
+
+.img-responsive{
+    width: 400px;
+    height: 270px;
+}
+
+
+
+#displayTeddy{
+    width:400px;
+    height: auto;
+    
+}
+.single-image{
+   width: 50px;
+   height:50px; 
+}
+
+
+
+.submitBtn{
+background: #ab3885;
+text-transform: uppercase;
+color: #ffffff;
+ border-width: 0px;
+border-style: solid;
+border-color: #ffffff;
+border-radius: 0;
+padding:10px;
+border-radius: 20px;
+font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
+font-size: 20px;
+         }
+
+
+
+
+.feedback{
+ display:none;
+ }
+          
+.showItem {
+  display:block;
+}
+          
+.fa-shopping-cart {
+ font-size: 40px;
+ color: #ab3885;
+ }
+             
+ .cart-link {
+ position: fixed;
+ right: 20px;
+ top: 20px;
+}
+                  
+.card-body{
+ width:400px;
+ height:auto;
+ margin-top:30px;
+                      
+}
+                  
+.img-responsive{
+ width: 400px;
+ height: 270px;
+}
+                  
+#displayTeddy{
+ width:500px;
+ height: 500px;
+ font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
+ margin: 0 auto;
+                      
+}
+          
+ ul li {
+ list-style-type: none;
+ padding: 10px;
+ }
+          
+ .teddy-details{
+ color: #ab3885;
+}
+          
+.add-btn{
+background: #ab3885;
+text-transform: uppercase;
+color: #ffffff;
+border-width: 0px;
+border-style: solid;
+border-color: #ffffff;
+border-radius: 0;
+padding:10px;
+border-radius: 20px;
+font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
+font-size: 20px;
+ }
+
+.single-image{
+ width: 445px;
+ height:250px; 
+}
+            
+
+.submitBtn{
+    background: #ab3885;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-width: 0px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-radius: 0;
+    padding:10px;
+    border-radius: 20px;
+    font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    font-size: 13px;
+     }
+      p{
+        font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
+        color:#ab3885;
+        font-size: 18px;
+      }
+ 
+      .finalMsg{
+        text-align: center;
+        margin-top: 20px;
+        background: #e8e5e5;
+        padding:20px;
+        
+    }

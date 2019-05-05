@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans|Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -22,63 +23,44 @@
 
   <div class="col-md-6">
     
-      <form>
+      <form id="contact-form">
           <div class="form-group pt-2">
               <p>Please enter your details:</p>
             </div>
           <div class="form-group">
-            <input class="form-control" type="text"  id="first-name" placeholder ="First name" >
+            <input class="form-control" name="first_name" maxlength="32" id="first-name" placeholder ="First name" type="text" required="true">
+            
           </div>
           <div class="form-group">
-           <input class="form-control" type="text" id="last-name" placeholder ="Last name">
+           <input class="form-control" id="last-name" placeholder ="Last name" name="name" type="text" required="true" >
          </div>
          <div class="form-group">
-            <input class="form-control" id="address" placeholder ="Address">
+            <input class="form-control" id="address" placeholder ="Address" name="address" type="text" required="true" >
        </div>
        <div class="form-group">
-          <input class="form-control" id="city" placeholder ="City">
+          <input class="form-control" id="city" placeholder ="City" name="city" type="text" required="true" >
        </div>
        <div class="form-group">
-            <input class="form-control" id="email" placeholder ="Email">
+            <input class="form-control" id="email" placeholder ="Email" name="email" type="email" required="true" >
+            <button  class="submitBtn" type="submit" >Submit</button>
           </div> 
-  
-          <div class="form-group"><button id="submitBtn" class=" submitBtn px-5 mt-3">Submit</button></div>
+         
+        
+        </form>
+        
        </form> 
+       
+       <a href="index.html"><button class="submitBtn">Back to homepage</button></a>
+           
      </div>
 
-     <style>
-     .submitBtn{
-        background: #ab3885;
-        text-transform: uppercase;
-        color: #ffffff;
-        border-width: 0px;
-        border-style: solid;
-        border-color: #ffffff;
-        border-radius: 0;
-        padding:10px;
-        border-radius: 20px;
-        font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
-        font-size: 20px;
-         }
-          p{
-            font-family: "Bubblegum Sans", Arial, Helvetica, sans-serif;
-            color:#ab3885;
-          }
      
-     </style>
     
   </div>
   </div>
-      
-  
-     
-  
+       
 
-
-
-  
 <script src="cart.js"></script>
-<style>
-</style>
+
 </body>
 </html>

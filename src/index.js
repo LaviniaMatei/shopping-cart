@@ -14,11 +14,9 @@ request.onload = function() {
     for(var i in teddies){
       let card = document.createElement('div');
      card.className = 'card-body';
-    
-
       //add the image to the card
       let img = document.createElement('img');
-      img.className ='card-img img-responsive'
+      img.className ='img-responsive'
       img.src = teddies[i].imageUrl;
       card.appendChild(img);
        //add the title to the card
