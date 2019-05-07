@@ -10,7 +10,7 @@ window.onload = showTeddies;
 let totalPrice = 0;
 function showTeddies() {
   productsContainer.innerHTML = '';
-  //let totalPrice = 0;
+  totalPrice = 0;
 
   for(let cartItem of cart) {
     const cartItemEl = document.createElement('div');
@@ -19,6 +19,9 @@ function showTeddies() {
       <img class="img-fluid rounded  max-width: 100% height: auto pt-3" src="${cartItem.imageUrl}" width = "400px"/>
       <p> Name: ${cartItem.name}</p>
       <p>Color: ${cartItem.color}</p>
+      <p>Quantity: ${cartItem.quantity}</p>
+      <p>Price: ${cartItem.price * cartItem.quantity}</p>
+      
       <button class="float-right mr-5 mb-5 mt-3 submitBtn" onclick="deleteTheTeddy('${cartItem._id}','${cartItem.color}')">Remove item </button> 
       
     `;
@@ -34,6 +37,7 @@ function showTeddies() {
 function deleteTheTeddy(id, color) {
   cart = cart.filter(cartItem => {
     return cartItem._id !== id || cartItem.color !== color;  
+    
   });
 
   showTeddies();
