@@ -21,9 +21,9 @@ let addTeddyToTheCart;
 
             
             var output =
-            `<ul>
+            `<ul class ='myTeddy ml-n5'>
             
-            <li> <img class ='single-image' src="${img1}"></li>
+            <li> <img class ='img-fluid img-responsive width:100%' src="${img1}"></li>
             <li> <span class = 'teddy-details'>Name</span>: ${obj.name}</li>
             <li> <span class = 'teddy-details'>Price</span>: ${obj.price}</li>
             <li> <span class = 'teddy-details'>Description</span>: ${obj.description}</li>

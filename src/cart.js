@@ -17,7 +17,7 @@ function showTeddies() {
 
     cartItemEl.innerHTML = `
       <img class="img-fluid rounded  max-width: 100% height: auto pt-3" src="${cartItem.imageUrl}" width = "400px"/>
-      <p> Name: ${cartItem.name}</p>
+      <p class ="mt-3"> Name: ${cartItem.name}</p>
       <p>Color: ${cartItem.color}</p>
       <p>Quantity: ${cartItem.quantity}</p>
       <p>Price: ${cartItem.price * cartItem.quantity}</p>
@@ -81,6 +81,7 @@ request.send(JSON.stringify(data));
 
   async function submitFormData(post){
     try{
+      
       const requestPromise = makeRequest(post).then((response) => {
         localStorage.setItem('cart', JSON.stringify([]));
 
