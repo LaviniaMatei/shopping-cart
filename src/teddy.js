@@ -71,8 +71,10 @@ let addTeddyToTheCart;
             colorsEditSelect.appendChild(colorOption);      
             }
         }else {
-            //todo just do some error handling when the teddy is not set int the localstorage
+            console.log('fail')
+            
         }
+
     }
 
     //show feedback
